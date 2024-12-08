@@ -11,10 +11,10 @@ function getValueByText (id){
 // ---------
 
 document.getElementById('first-card-btn').addEventListener('click', function(){
+    console.log('kaj hoi')
     let firstDonetValue = getInputValueById('first-donet-value')
     let firstDonetMoney = getValueByText('first-donet-money')
-    let firstheadlinetext = document.getElementById
-    ('first-card-headline').innerText;
+    let firstCardHeadLine = document.getElementById('first-card-headline').innerText
     let currentDate = new Date();
 let formattedDate = currentDate.toLocaleDateString('en-US', {
     year: 'numeric',
@@ -23,12 +23,13 @@ let formattedDate = currentDate.toLocaleDateString('en-US', {
 });
     if(firstDonetValue> 0){
         let total = firstDonetValue + firstDonetMoney;
+        console.log(total)
         let navMoney = getValueByText('nav-money')
         let historySection = document.getElementById('history-section');
                 let historyItem = document.createElement('div');
                 historyItem.classList.add('bg-[#F9F7F3]', 'p-4', 'mb-4', 'rounded', 'shadow-md');
                 historyItem.innerHTML = `
-                   <p class="text-xl font-bold">${firstDonetValue} Tk is ${firstheadlinetext} 
+                     <p class="text-xl font-bold">${firstDonetValue} Tk is ${firstCardHeadLine} 
                   
                     </p>
                     <p class="text-gray-600"> ${formattedDate}</p>
@@ -42,7 +43,7 @@ let formattedDate = currentDate.toLocaleDateString('en-US', {
            document.getElementById('my_modal_8').classList.add('modal-open');
     }
     else{
-        alert('don to value')
+        alert('your value is not valid')
     }
     
 })
@@ -85,7 +86,7 @@ let formattedDate = currentDate.toLocaleDateString('en-US', {
            document.getElementById('my_modal_8').classList.add('modal-open');
     }
     else{
-        alert('don to value')
+        alert('your value is not valid')
     }
     
 })
@@ -147,20 +148,22 @@ document.getElementById('close-modal-btn').addEventListener('click', function() 
   
   historyTab.addEventListener('click', function () {
       // Add background color and text color for the clicked tab
-      historyTab.classList.add('bg-[#B4F461]', 'text-black');
-      donetTab.classList.remove('bg-[#B4F461]', 'text-black');
+      historyTab.classList.add('bg-lime-500', 'text-black');
+      donetTab.classList.remove('bg-lime-500', 'text-black');
       
       // Toggle visibility of the sections
       cardSection.classList.add('hidden');
+      donetTab.classList.add('bg-gray-300')
       historySection.classList.remove('hidden');
   });
   
   donetTab.addEventListener('click', function () {
-      donetTab.classList.add('bg-[#B4F461]', 'text-black');
-      historyTab.classList.remove('bg-[#B4F461]', 'text-black');
+      donetTab.classList.add('bg-lime-500', 'text-black');
+      historyTab.classList.remove('bg-lime-500', 'text-black');
       
       // Toggle visibility of the sections
       cardSection.classList.remove('hidden');
+
       historySection.classList.add('hidden');
   });
   
